@@ -1,0 +1,265 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans,
+    Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(90deg, rgb(112, 112, 112), rgb(130, 246, 250));
+  z-index: -1000;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasksContainer {
+  background: linear-gradient(90deg, rgb(112, 112, 112), rgb(130, 246, 250));
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  outline: none;
+}
+.tasksContainer input:focus {
+  border-bottom: 2px solid aliceblue;
+  outline: none;
+}
+
+.header {
+  text-align: center;
+  color: rgb(52, 53, 54);
+}
+
+.submitButton {
+  border: 2px solid aliceblue;
+  padding: 10px 25px;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminCheckBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.messageResponse {
+  font-size: 15px;
+  color: aliceblue;
+}
+
+.taskInput {
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid black;
+  font-size: 20px;
+  width: 70vw;
+  margin-bottom: 20px;
+}
+
+.garbage {
+  background: transparent;
+  border: none;
+  font-size: 40px;
+  color: aliceblue;
+}
+
+.addButton {
+  position: fixed;
+  padding: 30px;
+  font-size: 20px;
+  background: linear-gradient(rgb(250, 212, 212), rgb(218, 234, 250));
+  border: 3px solid aliceblue;
+  border-radius: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+/* text inputs */
+
+.field {
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #d3d3d3);
+}
+
+.field__input {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+  opacity: 1;
+}
+
+.a-field {
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.a-field__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.a-field__input:focus {
+  outline: none;
+}
+
+.a-field {
+  --uiFieldHeight: var(--fieldHeight, 2.5rem);
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldBorderColor: var(--fieldBorderColor);
+
+  --uiFieldFontSize: var(--fieldFontSize, 1rem);
+  --uiFieldHintFontSize: var(--fieldHintFontSize, 1rem);
+
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+  --uiFieldPaddingBottom: var(--fieldPaddingBottom, 1rem);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
+
+  position: relative;
+  box-sizing: border-box;
+  font-size: var(--uiFieldFontSize);
+  padding-top: 1rem;
+}
+
+.a-field__input {
+  height: var(--uiFieldHeight);
+  padding: 0 var(--uiFieldPaddingRight) 0 var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColor);
+}
+
+.a-field__input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.a-field__input::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.a-field__input:not(:placeholder-shown) ~ .a-field__label-wrap .a-field__label {
+  opacity: 0;
+  bottom: var(--uiFieldPaddingBottom);
+}
+
+.a-field__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.a-field__input:focus::-moz-placeholder {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.a-field__label-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--uiFieldHeight);
+
+  pointer-events: none;
+  cursor: text;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.a-field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  bottom: calc(50% - 0.5em);
+
+  line-height: 1;
+  font-size: var(--uiFieldHintFontSize);
+
+  pointer-events: none;
+  transition: bottom 0.2s cubic-bezier(0.9, -0.15, 0.1, 1.15),
+    opacity 0.2s ease-out;
+  will-change: bottom, opacity;
+}
+
+.a-field__input:focus ~ .a-field__label-wrap .a-field__label {
+  opacity: 1;
+  bottom: var(--uiFieldHeight);
+}
+
+.a-field_a2 .a-field__label-wrap::after {
+  content: "";
+  box-sizing: border-box;
+  width: 0;
+  height: var(--uiFieldBorderWidth);
+  background-color: var(--fieldBorderColorActive);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  will-change: width;
+  transition: width 0.285s ease-out;
+}
+
+.a-field_a2 .a-field__input:focus ~ .a-field__label-wrap::after {
+  width: 100%;
+}
+
+.field {
+  --fieldBorderColor: #000000;
+  --fieldBorderColorActive: #fcfcfc;
+}
+
+/* activity indicator */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
