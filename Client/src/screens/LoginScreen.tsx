@@ -33,8 +33,11 @@ const LoginScreen = () => {
       }, 1000);
     } catch (err) {
       setLoading(false);
+      if(err.response){
       setMessage(err.response.data.error);
-    }
+      }
+      else{setMessage('Error accoured try again later')}
+      }
   };
 
   return (
