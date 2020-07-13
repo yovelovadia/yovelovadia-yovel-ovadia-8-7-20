@@ -68,7 +68,7 @@ Router.post("/login", (req: Request, res: Response, next: NextFunction) => {
       if (!user) {
         return res
           .status(401)
-          .json({ error: "Wrong email or password nigger" });
+          .json({ error: "Wrong email or password" });
       } else {
         bcrypt.compare(req.body.password, user.password, (error, hash) => {
           if (error) {
